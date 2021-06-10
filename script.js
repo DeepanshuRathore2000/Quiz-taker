@@ -104,10 +104,18 @@ submit.addEventListener("click", () => {
     else{
        resultBox.classList.add("activeresult");
        quizBox.classList.remove("activequiz");
-       
+       quizResult();
     }
 });
 restartQuiz.addEventListener("click",function(){
     location.reload();
 })
-
+function quizResult(){
+    // totalques.innerHTML = quizDB.length;
+    resultBox.querySelector(".total-question").innerHTML = quizDB.length;
+    resultBox.querySelector(".total-correct").innerHTML = score;
+    resultBox.querySelector(".total-wrong").innerHTML = quizDB.length - score;
+    const percentage = (score/quizDB.length)*100;
+    resultBox.querySelector(".total-percentage").innerHTML = percentage.toFixed() + "%";
+    resultBox.querySelector(".total-score").innerHTML = score + "/" + quizDB.length;
+}
