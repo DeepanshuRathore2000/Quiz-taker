@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- info box -->
+    <div class="info_box">
+        <div class="info_title">
+            <span> Rules of this Quiz </span>
+        </div>
+        <div class="info_list">
+            <div class="info">1. You will have only <span> 5 mins</span> to complete the whole quiz.</div>
+            <div class="info">2. Once you select your answer you cannot reselect.</div>
+            <div class="info">3. You cannot exit from the quiz tab.</div>
+            <div class="info">4. You can select only one option.</div>
+        </div>
+        <div class="buttons">
+            <!-- <button class="quit">Exit Quiz</button> -->
+            <button class="continue">Start Quiz</button>
+        </div>
+    </div>
     <div class="main-container">
         <div class="inner-container">
             <h2 class="question" Question comes here></h2>
@@ -24,13 +40,46 @@
                     <input type="radio" name="answer" id="ans3" class="answer">
                     <label for="ans3" id="option3" > Answer Option</label>
                 </li>
-                <li>
+                <li> 
                     <input type="radio" name="answer" id="ans4" class="answer">
                     <label for="ans4" id="option4" > Answer Option</label>
                 </li>
             </ul>
             <button id="submit" > submit</button>
-            <div id="showScore" class="scoreArea"> </div>
+            <!-- <div id="showScore" class="scoreArea"> </div> -->
+        </div>
+        <div class="result-box custom-box">
+            <h1>Quiz Result</h1>
+            <table>
+                <tr>
+                    <td>Total Question</td>
+                    <td><span class="total-question">4</span></td>
+                </tr>
+                <tr>
+                    <td>Attempt</td>
+                    <td><span class="total-attempt">3</span></td>
+                </tr>
+                <tr>
+                    <td>Correct</td>
+                    <td><span class="total-correct">2</span></td>
+                </tr>
+                <tr>
+                    <td>Wrong</td>
+                    <td><span class="total-wrong">1</span></td>
+                </tr>
+                <tr>
+                    <td>Percentage</td>
+                    <td><span class="total-score">2/4</span></td>
+                </tr>
+                <tr>
+                    <td>Your Total Score</td>
+                    <td><span class="total-question">4</span></td>
+                </tr>
+            </table>
+            <div class="result-box-buttons">
+                <button type="button" class="restart btn">Try Again</button>
+                <button type="button" class="download btn">Download Result</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

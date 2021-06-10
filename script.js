@@ -37,17 +37,29 @@ const quizDB = [
     }
 ];
 
+const infoBox = document.querySelector(".info_box");
+const continueBtn = document.querySelector(".buttons .continue");
+const quizBox = document.querySelector(".inner-container");
 const question = document.querySelector('.question');
 const option1 = document.querySelector('#option1');
 const option2 = document.querySelector('#option2');
 const option3 = document.querySelector('#option3');
 const option4 = document.querySelector('#option4');
 const submit = document.querySelector("#submit");
+const resultBox = document.querySelector(".result-box");
+const restartQuiz = document.querySelector(".result-box-buttons .restart");
+const downloadResult = document.querySelector("result-box-buttons .download");
 
 const answers = document.querySelectorAll(".answer");
 const showScore = document.querySelector ("#showScore");
 let questionCount = 0;
 let score = 0;
+
+// If continue button clicked
+continueBtn.onclick = ()=>{
+    quizBox.classList.add("activequiz"); // show the quizbox
+    infoBox.classList.add("hide");
+} 
 
 const loadQuestion = () => {
     const questionList = quizDB[questionCount];
@@ -90,10 +102,12 @@ submit.addEventListener("click", () => {
         loadQuestion();
     }
     else{
-        showScore.innerHTML =`
-        <h3> You scored ${score}/${quizDB.length} ✌ </h3>
-        <button class="btn" onclick="location.reload()"> Play Again </botton>`;
-        
-        showScore.classList.remove('scoreArea');
+       resultBox.classList.add("activeresult");
+       quizBox.classList.remove("activequiz");
+       
     }
 });
+restartQuiz.addEventListener("click",function(){
+    location.reload();
+})
+
