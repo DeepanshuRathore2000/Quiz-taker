@@ -14,7 +14,7 @@
             <span> Rules of this Quiz </span>
         </div>
         <div class="info_list">
-            <div class="info">1. You will have only <span> 5 mins</span> to complete the whole quiz.</div>
+            <div class="info">1. You will have only <span> 15 sec</span> to answer a question.</div>
             <div class="info">2. Once you select your answer you cannot reselect.</div>
             <div class="info">3. You cannot exit from the quiz tab.</div>
             <div class="info">4. You can select only one option.</div>
@@ -25,7 +25,16 @@
         </div>
     </div>
     <div class="main-container">
+        
         <div class="inner-container">
+            <header>
+                <div class="title">Online Exam</div>
+                <div class="timer">
+                    <div class="time_text">Time Left</div>
+                    <div class="timer_sec"> 15 </div>
+                </div>
+                <div class="time_line"></div>
+            </header>
             <h2 class="question" Question comes here></h2>
             <ul>
                 <li>
@@ -50,7 +59,8 @@
         </div>
         <div class="result-box custom-box">
             <h1>Quiz Result</h1>
-            <table>
+            <div class="table">
+            <table> 
                 <tr>
                     <td>Total Question</td>
                     <td><span class="total-question">5</span></td>
@@ -76,12 +86,15 @@
                     <td><span class="total-score">4</span></td>
                 </tr>
             </table>
+            </div>
             <div class="result-box-buttons">
                 <button type="button" class="restart btn">Try Again</button>
                 <button type="button" class="download btn">Download Result</button>
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
     <script src="script.js"></script>
+    <script src="download.js"></script>
 </body>
 </html>

@@ -40,6 +40,7 @@ const quizDB = [
 const infoBox = document.querySelector(".info_box");
 const continueBtn = document.querySelector(".buttons .continue");
 const quizBox = document.querySelector(".inner-container");
+const timeCount = quizBox.querySelector(".timer .timer_sec");
 const question = document.querySelector('.question');
 const option1 = document.querySelector('#option1');
 const option2 = document.querySelector('#option2');
@@ -48,17 +49,20 @@ const option4 = document.querySelector('#option4');
 const submit = document.querySelector("#submit");
 const resultBox = document.querySelector(".result-box");
 const restartQuiz = document.querySelector(".result-box-buttons .restart");
-const downloadResult = document.querySelector("result-box-buttons .download");
+
 
 const answers = document.querySelectorAll(".answer");
 const showScore = document.querySelector ("#showScore");
 let questionCount = 0;
 let score = 0;
+let counter;
+let timeValue =  25;
 
 // If continue button clicked
 continueBtn.onclick = ()=>{
     quizBox.classList.add("activequiz"); // show the quizbox
     infoBox.classList.add("hide");
+    startTimer(25);
 } 
 
 const loadQuestion = () => {
@@ -100,6 +104,8 @@ submit.addEventListener("click", () => {
 
     if(questionCount < quizDB.length){
         loadQuestion();
+        clearInterval(counter);
+        startTimer(timeValue);
     }
     else{
        resultBox.classList.add("activeresult");
@@ -110,6 +116,7 @@ submit.addEventListener("click", () => {
 restartQuiz.addEventListener("click",function(){
     location.reload();
 })
+
 function quizResult(){
     // totalques.innerHTML = quizDB.length;
     resultBox.querySelector(".total-question").innerHTML = quizDB.length;
@@ -118,4 +125,11 @@ function quizResult(){
     const percentage = (score/quizDB.length)*100;
     resultBox.querySelector(".total-percentage").innerHTML = percentage.toFixed() + "%";
     resultBox.querySelector(".total-score").innerHTML = score + "/" + quizDB.length;
+}
+function startTimer(time){
+    counter= setInterval(timer, 1000);
+    function timer(){
+        timeCount.textContent = time;
+        time--;
+    }
 }
