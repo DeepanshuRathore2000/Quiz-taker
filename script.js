@@ -41,6 +41,7 @@ const infoBox = document.querySelector(".info_box");
 const continueBtn = document.querySelector(".buttons .continue");
 const quizBox = document.querySelector(".inner-container");
 const timeCount = quizBox.querySelector(".timer .timer_sec");
+
 const question = document.querySelector('.question');
 const option1 = document.querySelector('#option1');
 const option2 = document.querySelector('#option2');
@@ -56,13 +57,15 @@ const showScore = document.querySelector ("#showScore");
 let questionCount = 0;
 let score = 0;
 let counter;
-let timeValue =  25;
+let timeValue = 15;
+
 
 // If continue button clicked
 continueBtn.onclick = ()=>{
     quizBox.classList.add("activequiz"); // show the quizbox
     infoBox.classList.add("hide");
-    startTimer(25);
+    startTimer(15);
+    
 } 
 
 const loadQuestion = () => {
@@ -106,6 +109,7 @@ submit.addEventListener("click", () => {
         loadQuestion();
         clearInterval(counter);
         startTimer(timeValue);
+        
     }
     else{
        resultBox.classList.add("activeresult");
@@ -131,5 +135,15 @@ function startTimer(time){
     function timer(){
         timeCount.textContent = time;
         time--;
+        if(time<0){
+            let addZero = timeCount.textContent;
+            timeCount.textContent = "0" + addZero;
+        }
+        if(time < 0){
+            clearInterval(counter);
+            timeCount.textContent = "00";
+        }
     }
 }
+
+
